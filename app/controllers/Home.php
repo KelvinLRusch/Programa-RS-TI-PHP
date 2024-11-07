@@ -6,10 +6,10 @@ class Home extends Controller {
         
         // Initialize Home model
         $pessoas = $this->model('Pessoas');
-
+        
         // Call function from the model
         $pessoasData = $pessoas->getPessoa();
-
+        
         $this->view('cadastro/index', ['pessoas' => $pessoasData, 'parameters' => [$param1, $param2, $param3]]);
     }
 }

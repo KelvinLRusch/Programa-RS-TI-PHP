@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 die(var_dump($data));
+=======
+    die(var_dump($data));
+>>>>>>> ba92ce0 (teste)
 ?>
 
 <!DOCTYPE html>
