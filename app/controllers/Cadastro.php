@@ -26,10 +26,13 @@ class Cadastro extends Controller {
     // Cria uma nova pessoa no banco de dados.
     public function novoCadastro() {
         $pessoa = $this->model('Pessoas');
+        $pessoa->cpf = $_POST['cpf'];
         $pessoa->nome = $_POST['nome'];
         $pessoa->sobrenome = $_POST['sobrenome'];
-        $pessoa->email = $_POST['email'];
+        $pessoa->data_nascimento = $_POST['data_nascimento'];
+        $pessoa->sexo = $_POST['sexo'];
         $pessoa->telefone = $_POST['telefone'];
+        $pessoa->email = $_POST['email'];
         $pessoa->cep = $_POST['cep'];
         $pessoa->rua = $_POST['rua'];
         $pessoa->numero = $_POST['numero'];

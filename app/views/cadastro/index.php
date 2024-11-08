@@ -1,9 +1,13 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 die(var_dump($data));
 =======
     die(var_dump($data));
 >>>>>>> ba92ce0 (teste)
+=======
+    //die(var_dump($data));
+>>>>>>> 94dd756 (fim de aula)
 ?>
 
 <!DOCTYPE html>
@@ -34,10 +38,10 @@ die(var_dump($data));
                 Cadastre-se
             </div>
             <!-- Carrega a Controller "Cadastro" e chama a função PHP "novoCadastro()" dentro dela -->
-            <form action="/public/index.php?url=Cadastro/novoCadastro" method="post">
+            <form action="/Cadastro/novoCadastro" method="post">
                 <div class="row mt-4">
                     <div class="col-6">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" placeholder="Nome" name="nome">
                         <div class="invalid-feedback">
                             Por favor, digite o seu nome.
                         </div>
@@ -46,12 +50,12 @@ die(var_dump($data));
                         </div>
                     </div>
                     <div class="col-6">
-                        <input type="text" class="form-control cont" name="Sobrenome" placeholder="Sobrenome" >
+                        <input type="text" class="form-control cont" name="sobrenome" placeholder="Sobrenome" >
                     </div>
                 </div>
                 <div class="row mt-4">
                     <div class="col-6">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" placeholder="Telefone" name="telefone">
                         <div class="invalid-feedback">
                             Por favor, digite o seu telefone.
                         </div>
@@ -94,6 +98,12 @@ die(var_dump($data));
                     <div class="col-6">
                         <select class="form-select" id="estado" name="estado">
                             <option value="">Selecione o estado</option>
+                            <?php
+                                $estados = $data["estados"];
+                                foreach($estados as $estado){
+                                    echo('<option value="' . $estado->id . '">' . $estado->nome . '</option>');
+                                }
+                            ?>
                         </select>
                     </div>
                     <div class="col-6">
