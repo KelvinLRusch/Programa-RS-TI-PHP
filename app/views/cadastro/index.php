@@ -1,15 +1,3 @@
-<?php
-<<<<<<< HEAD
-<<<<<<< HEAD
-die(var_dump($data));
-=======
-    die(var_dump($data));
->>>>>>> ba92ce0 (teste)
-=======
-    //die(var_dump($data));
->>>>>>> 94dd756 (fim de aula)
-?>
-
 <!DOCTYPE html>
 <html lang="pt" data-bs-theme="dark">
 <head>
