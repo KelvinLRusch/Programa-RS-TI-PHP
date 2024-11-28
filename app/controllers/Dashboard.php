@@ -9,8 +9,8 @@ class Dashboard extends Controller {
 
         // Valida se o usuário está autenticado
         if($login->estaLogado()) {
-            $this->view('dashboard/index')
-        }else{
+            $this->view('dashboard/index');
+        } else{
             $login->index();
         }
     }

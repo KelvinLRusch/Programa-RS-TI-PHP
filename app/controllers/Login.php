@@ -43,8 +43,8 @@ class Login extends Controller {
 
     public function realizaLogin() {
         //var_dump($_POST);
-        $usuario = $_POST('custom-username');
-        $senha = $_POST('custom-password');
+        $usuario = $_POST['custom-username'];
+        $senha = $_POST['custom-password'];
 
         if($this->validaLogin($usuario, $senha)) {
             header('location: /Dashboard');
