@@ -47,7 +47,7 @@
     <!-- Contêiner de login -->
     <div class="custom-login-container">
         <h2 class="custom-login-title">Login</h2>
-        <form id="custom-login-form">
+        <form id="custom-login-form" action="/Login/realizaLogin" method="post">
             <div class="custom-input-group">
                 <label for="custom-username">E-mail</label>
                 <input type="email" id="custom-username" name="custom-username" placeholder="Digite seu e-mail">

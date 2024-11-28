@@ -8,11 +8,9 @@ class Dashboard extends Controller {
         $login = new Login();
 
         // Valida se o usuário está autenticado
-        if(!$login->estaLogado()) {
-            // Se o usuário não estiver autenticado
-        
-            // Carrega a função index() da Controller de Login
-            // que exibe o formulário de login:
+        if($login->estaLogado()) {
+            $this->view('dashboard/index')
+        }else{
             $login->index();
         }
     }
