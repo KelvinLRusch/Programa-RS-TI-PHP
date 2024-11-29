@@ -21,4 +21,8 @@ class Produto extends Controller {
         
         $this->view('produto/index', ['produto' => $produtoData]);
     }
+
+    public function addProduto(){
+        
+    }
 }
