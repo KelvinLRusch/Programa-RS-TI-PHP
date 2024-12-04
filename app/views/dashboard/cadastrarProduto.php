@@ -57,7 +57,7 @@
 <body>
     <div class="container">
         <h1>Cadastro de Produtos</h1>
-        <form action="/cadastrar-produto" method="POST" enctype="multipart/form-data">
+        <form action="/Produto/addProduto" method="POST" enctype="multipart/form-data">
             <!-- Nome do Produto -->
             <label for="nome">Nome do Produto:</label>
             <input type="text" id="nome" name="nome" placeholder="Ex: Violão Acústico" required>

@@ -21,10 +21,13 @@ class Database {
         return $pdo;
     }
 
+    //alterado para retornar o id quando é um insert
     public static function query($query, $params = array()) {
-        $stmt = self::connect()->prepare($query);
+        $dbh = self::connect();
+        $stmt = $dbh->prepare($query);
         $stmt->execute($params);
         $data = $stmt->fetchAll();
+        $data = (count($data) > 0 ? $data : $dbh->lastInsertId());
         return $data;
     }
 }

@@ -23,6 +23,21 @@ class Produto extends Controller {
     }
 
     public function addProduto(){
-        
+        //var_dump($_POST);
+
+        //extrai e associa o valor a variaveis com o nome dos dados
+        extract($_POST);
+
+        //inicia o model Produtos
+        $produto = $this->model('Produtos');
+
+        //Executa a função da model
+        $produto->nome = $nome;
+        $produto->descricao = $descricao;
+        $produto->preco = $preco;
+        $produto->categoria = (int) $categoria; //(int) força que o valores do cadastro seja int
+        $produto->cor = $cor;
+        $resultado = $produto->insereProduto();
+        echo $resultado;
     }
 }

@@ -30,12 +30,12 @@ class Pessoas {
 
     // Adiciona uma pessoa ao banco de dados.
     public function inserirPessoa() {
-        $sqlQuery = "INSERT INTO `pessoas` \
-                (`cpf`, `nome`, `sobrenome`, `data_nascimento`, `sexo`, `telefone`, `email`, \
-                `cep`, `numero`, `bairro`, `cidade`, `rua`, `complemento`, `estado`) \
-                VALUES \
-                ('?', '?', '?', '?', '?', '?', '?', \
-                '?', '?', '?', '?', '?', '?', '?');";
+        $sqlQuery = "INSERT INTO `pessoas`
+                    (`cpf`, `nome`, `sobrenome`, `data_nascimento`, `sexo`, `telefone`, `email`,
+                    `cep`, `numero`, `bairro`, `cidade`, `rua`, `complemento`, `estado`)
+                    VALUES
+                    ('?', '?', '?', '?', '?', '?', '?',
+                    '?', '?', '?', '?', '?', '?', '?');";
 
         try {
             return Database::query($sqlQuery,

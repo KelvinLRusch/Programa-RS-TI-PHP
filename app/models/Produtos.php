@@ -20,16 +20,22 @@ class Produtos {
         }
     }
 
-   /* public function insereProduto(){
-        $sqlQuery = "INSERT INTO `produtos` \
-                (`nome`, `cor`, `preco`, `descricao`, `fotos`) \
-                VALUES \
-                ('?', '?', '?', '?', '?');";
+    public function insereProduto(){
+        // \ quebra a linha na query
+        $sqlQuery = "INSERT INTO `produtos`
+                        (`nome`, `cor`, `preco`, `descricao`, `fotos`)
+                        VALUES
+                        (?, ?, ?, ?, ?);";
 
         try {
-            return Database::query($sqlQuery,[$this->nome, $this->cor, $this->preco, $this->descricao, $this->fotos]);
+            return Database::query($sqlQuery,
+            [$this->nome,
+                     $this->cor,
+                     $this->preco,
+                     $this->descricao,
+                     $this->fotos ?? '']); //adiciona fotos ou nada se nao forem carregados arquivos
         } catch (\PDOException $e) {
             exit($e->getMessage());
         }
-    }*/
+    }
 }
