@@ -1,5 +1,4 @@
 <?php
-
 class Produtos {
 
     public $nome;
@@ -26,14 +25,27 @@ class Produtos {
                         (`nome`, `cor`, `preco`, `descricao`, `fotos`)
                         VALUES
                         (?, ?, ?, ?, ?);";
-
         try {
-            return Database::query($sqlQuery,
-            [$this->nome,
-                     $this->cor,
-                     $this->preco,
-                     $this->descricao,
-                     $this->fotos ?? '']); //adiciona fotos ou nada se nao forem carregados arquivos
+            $idProdutoAdicionado = Database::query($sqlQuery,
+                                                [$this->nome,
+                                                        $this->cor,
+                                                        $this->preco,
+                                                        $this->descricao,
+                                                        $this->fotos ?? '']); //adiciona fotos ou nada se nao forem carregados arquivos
+            if($idProdutoAdicionado){
+                $sqlQuery = "INSERT INTO `produtos_has_categorias`
+                            (`idProdutos`, `idCategorias`)
+                            VALUES
+                            (?, ?);";
+                try {
+                    Database::query($sqlQuery,
+                                    [$idProdutoAdicionado,
+                                            $this->categoria]);
+                    return $idProdutoAdicionado;
+                } catch (\PDOException $e) {
+                    exit($e->getMessage());
+                }
+            }
         } catch (\PDOException $e) {
             exit($e->getMessage());
         }

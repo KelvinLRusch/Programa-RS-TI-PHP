@@ -1,6 +1,6 @@
 <?php 
 // Mostra os dados repassados a View pela Controller
-var_dump($data); 
+//var_dump($data); 
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -66,7 +66,7 @@ var_dump($data);
     <!-- Conteudo principal -->
     <div class="product-details-container">
         <div class="product-image">
-            <img src="<?php echo $data['produto']->fotos[0]; ?>" alt="Casaco Jeans Com Cinto">
+            <img src="<?php echo $data['produto']->fotos[0]; ?>" alt="<?php echo $data['produto']->nome; ?>">
             <i class="fas fa-search-plus zoom-icon"></i>
         </div>
         <div class="product-info">
