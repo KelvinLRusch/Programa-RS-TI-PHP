@@ -97,15 +97,15 @@ $produto = $data['produtos'] ?? [];
 
             <!-- Cor do Produto -->
             <label for="cor">Cor:</label>
-            <input type="text" id="cor" name="cor" placeholder="Ex: Preto, Natural, Vermelho" required>
+            <input type="text" id="cor" name="cor" placeholder="Ex: Preto, Natural, Vermelho" value="<?php echo (isset($produto->cor)?$produto->cor:'') ?>" required>
 
             <!-- Preço -->
             <label for="preco">Preço (R$):</label>
-            <input type="number" id="preco" name="preco" step="0.01" placeholder="Ex: 599.99" required>
+            <input type="number" id="preco" name="preco" step="0.01" placeholder="Ex: 599.99" value="<?php echo (isset($produto->preco)?$produto->preco:'') ?>" required>
 
             <!-- Descrição -->
             <label for="descricao">Descrição:</label>
-            <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva o produto..." required></textarea>
+            <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva o produto..." value="<?php echo (isset($produto->descricao)?$produto->descricao:'') ?>" required></textarea>
 
             <!-- Fotos -->
             <label for="fotos">Fotos do Produto:</label>

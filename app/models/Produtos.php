@@ -13,10 +13,10 @@ class Produtos {
         //isset verifica se foi informado um id de produto
         //arrQueryParametros passa os parametros sendo vazios ou nao
         if(isset($idProduto)){
-            $sqlQuery = "SELECT * FROM produtos p inner join produtos_has_categorias pc on p.id = pc.idProdutos WHERE id = ?";
+            $sqlQuery = "SELECT p.*,pc.idCategorias, FROM produtos p inner join produtos_has_categorias pc on p.id = pc.idProdutos inner join categorias c on pc.idCategorias = c.id WHERE id = ?";
             $arrQueryParametros = [$idProduto];
         }else{
-            $sqlQuery = "SELECT * FROM produtos inner join produtos_has_categorias pc on p.id = pc.idProdutos";
+            $sqlQuery = "SELECT p.*,pc.idCategorias FROM produtos inner join produtos_has_categorias pc on p.id = pc.idProdutos inner join categorias c on pc.idCategorias = c.id";
             $arrQueryParametros = [];
         }
         try {
