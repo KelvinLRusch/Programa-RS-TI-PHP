@@ -7,7 +7,7 @@ class Produto extends Controller {
         $produtos = $this->model('Produtos');
 
         // Chama a função do modelo
-        $produtoData = $produtos->getProduto($idProduto)[0];
+        $produtoData = $produtos->getProdutos($idProduto)[0];
         // Converte a coluna "fotos" do DB de JSON para Array (vetor)
         $produtoData->fotos = json_decode($produtoData->fotos);
         

@@ -1,10 +1,22 @@
-<?php // var_dump($data); ?>
+<?php  
+var_dump($data); 
+//se a controler passou um produto $produto recebe os dados do produto senao recebe nulo
+$produto = $data['produtos'] ?? [];
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Produtos</title>
+    <title>
+        <?php
+            if(isset($produto)) {
+                echo 'Edição de Produto';
+            }else{
+                echo 'Cadastro de Produtos';
+            }
+        ?>
+    </title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -56,11 +68,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>Cadastro de Produtos</h1>
+        <h1>
+            <?php
+                if(isset($produto)) {
+                    echo 'Editar Produto - #'.$produto->id;
+                }else{
+                    echo 'Cadastro de Produtos';
+                }
+            ?>
+        </h1>
         <form action="/Produto/addProduto" method="POST" enctype="multipart/form-data">
             <!-- Nome do Produto -->
             <label for="nome">Nome do Produto:</label>
-            <input type="text" id="nome" name="nome" placeholder="Ex: Violão Acústico" required>
+            <input type="text" id="nome" name="nome" placeholder="Ex: Violão Acústico" value="<?php echo (isset($produto->nome)?$produto->nome:'') ?>" required>
 
             <!-- Categoria do Produto -->
             <label for="nome">Categoria:</label>

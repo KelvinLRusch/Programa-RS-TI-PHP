@@ -9,8 +9,13 @@
         <!-- Exibe "Olá, admin@localhost" para o usuário -->
         <p>Olá, <?php echo $_SESSION['login']; ?>.</p>
         <ol>
-            <li><a href="/Dashboard/cadastrarProduto">Cadastrar Produto</a></li>
-            <li><a href="/Dashboard/listarProdutos">Listar Produtos</a></li>
+            <?php
+                $produtos = $data["produtos"];
+                foreach($produtos as $produto) {
+                    // var_dump($estado);
+                    echo '<li><a href="/Dashboard/editarProduto/'.$produto->id.'">'.$produto->nome.'</a></li>';
+                }
+            ?>
         </ol>
     </body>
 </html>
